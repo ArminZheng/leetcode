@@ -1,6 +1,7 @@
 from big_o import big_o, datagen
 
 # 估算排序函数 stored 的 大O 数量级
+
 best, others = big_o(
     func=sorted, # 计算的函数
     data_generator=lambda n: datagen.integers(n, 10000, 50000), # 产生输入参数的函数

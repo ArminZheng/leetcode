@@ -39,7 +39,6 @@ def v5():
     lst = list(range(1000000))
     t1 = Timer("test1()", "from __main__ import test1") # 命名空间
     print(f"{t1.timeit(number=1000):.3f} seconds")
-v5()
 
 def v6():
     f = open("pi50.4.bin", "rb")
@@ -60,3 +59,13 @@ def v7():
 def v8():
     s = input("please wake up! ")
     print(s)
+
+def v9(): # 交换两个数
+    a = 1
+    b = 2
+    a, b = b, a
+    print("a = ", a, ", b = ", b, sep="", end=".")
+
+if __name__ == "__main__":
+    # v5()
+    v9()

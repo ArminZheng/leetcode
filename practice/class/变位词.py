@@ -1,5 +1,4 @@
-# 使用比较计数法
-def anagramSolution(s1, s2):
+def anagramSolution(s1, s2): # 使用比较计数法
     c1 = [0] * 26
     c2 = [0] * 26
     for i in range(len(s1)):

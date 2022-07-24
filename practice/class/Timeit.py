@@ -1,20 +1,21 @@
-# 性能测试
 from timeit import Timer
 
-def test1():
+# 性能测试
+
+def test1(): # 循环连接 (cat)
     l = []
     for i in range(1000):
         l = l + [i]
 
-def test2():
+def test2(): # append()函数
     l = []
     for i in range(1000):
         l.append(i)
 
-def test3():
+def test3(): # 列表推导式
     l = [i for i in range(1000)]
 
-def test4():
+def test4(): # range()函数转列表
     l = list(range(1000))
 
 t1 = Timer("test1()", "from __main__ import test1")
