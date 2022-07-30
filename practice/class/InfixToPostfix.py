@@ -9,10 +9,8 @@ def infixToPostfix(infixexpr):
     prec["("] = 1
     opStack = Stack()
     postfixList = []
-    if " " in infixexpr:
-        tokenList = infixexpr.split()
-    else:
-        tokenList = list(infixexpr)
+    
+    tokenList = split(infixexpr)
 
     for token in tokenList:
         if token in "QWERTYUIOPASDFGHJKLZXCVBNM" or token in "1234567890":
@@ -32,6 +30,12 @@ def infixToPostfix(infixexpr):
     while not opStack.isEmpty():
         postfixList.append(opStack.pop())
     return " ".join(postfixList)
+
+def split(infixexpr):
+    if " " in infixexpr:
+        return infixexpr.split()
+    else:
+        return list(infixexpr)
 
 if __name__ == "__main__":
     print(infixToPostfix("A + B * C + D * E + F"))
