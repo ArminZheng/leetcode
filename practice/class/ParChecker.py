@@ -31,7 +31,25 @@ def match(a, b):
         return True
     return False
 
+def effectBrackets(s):
+    st = Stack()
+    d = {"(":")", "[":"]", "{":"}"}
+    # s = input()
+    for a in s:
+        if a in "({[":
+            st.push(a)
+        elif st.isEmpty() or not a == d[st.pop()]:
+            print("False")
+            break
+    else:
+        if st.isEmpty():
+            print("True")
+        else:
+            print("False")
+
 if __name__ == '__main__':
     print(parChecker("((()])"))
     print("======")
     print(parChecker("(([]))"))
+    print("======")
+    effectBrackets("(([]))")

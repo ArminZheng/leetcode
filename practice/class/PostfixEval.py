@@ -40,3 +40,4 @@ def split(infixexpr):
 reslut, formula = postfixEval("996*+92*+4+")
 print(formula, "= ", reslut, sep="")
 print(postfixEval("996*+92*+4+"), sep="")
+print(postfixEval("23*4+")[0], sep="")
