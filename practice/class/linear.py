@@ -9,6 +9,7 @@ s = Stack()
 
 print(s.isEmpty())
 s.push(4)
+Stack.push(s, 5)
 s.push('dog')
 print(s.peek())
 s.push(True)

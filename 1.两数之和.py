@@ -13,20 +13,21 @@ class Solution(object):
     #         hash.put(numbers[i], i);
     #     }
     #     return new int[] {};
-    def secondTwoSum(self, nums, target):
+    def secondTwoSum(self, nums, target, /):
         source = {}
         for i, num in enumerate(nums):
             diff = target - num
             if diff in source:
                 return [source[diff], i]
             source[num] = i
-    def threeTwoSum(self, nums, target):
+
+    def threeTwoSum(self, nums, target, /):
         for i in range(len(nums)):
             a = target - nums[i]
             if a in nums and nums.index(a) != i:
-                return  i, nums.index(a)
+                return i, nums.index(a)
 
-    def twoSum(self, nums: list, target: int = 6) -> list:
+    def twoSum(self, nums: list, target: int = 6, /) -> list:
         '''this is stupid algorithm'''
         # two point
         source = [(value, index) for index, value in enumerate(nums)]
