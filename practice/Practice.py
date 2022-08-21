@@ -288,7 +288,7 @@ class CheckI:
         self.__fn = fn
     def __call__(self, *args: Any, **kwds: Any) -> Any:
         print("登陆")
-        self.__fn
+        self.__fn()
 
 @CheckI
 def comment():
