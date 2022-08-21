@@ -26,6 +26,7 @@ def multi_thread():
         thread.start()
     for thread in threads:
         thread.join()
+    print(threads.__len__())
     print("multi_thread end")
 
 
