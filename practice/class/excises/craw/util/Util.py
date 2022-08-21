@@ -1,7 +1,7 @@
 from time import time
 
 
-def getTime(fn):
+def timesum(fn):
     def inner(*args, **kwargs):
         print(">>开始计时!")
         start = time()
