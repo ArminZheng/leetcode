@@ -1,10 +1,10 @@
 from typing import *
 import blog_spider
 import threading
-from util.Util import getTime
+from util.Util import timesum
 
 
-@getTime
+@timesum
 def single_thread():
     print("single_thread begin")
     for url in blog_spider.urls:
@@ -12,7 +12,7 @@ def single_thread():
     print("single_thread end")
 
 
-@getTime
+@timesum
 def multi_thread():
     print("mutil_thread begin")
     threads: List[threading.Thread] = []
@@ -31,5 +31,5 @@ def multi_thread():
 
 
 if __name__ == '__main__':
-    single_thread()
-    multi_thread()
+    single_thread() # 3.465031 s
+    multi_thread() # 0.239491 s
