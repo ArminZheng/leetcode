@@ -9,7 +9,11 @@ class DecoratorPerson:
         return self.__age
 
     @age.setter  # 方法名.setter 表示把方法当作属性使用, 表示设置属性时会执行下面修饰的方法
-    def age(self, age):  # 方法名一定要一样
+    def age1(self, age):  # 方法名要一样: 因为赋值操作会自动调用该方法
+        """
+        def age1(self, value) 代表: p.age1 = 1 
+        @age.setter 代表 @property def age(self)
+        """
         if age >= 150:
             print("???")
         else:
@@ -38,12 +42,12 @@ class ClassPerson:
 if __name__ == '__main__':
     p = DecoratorPerson()
     p1 = DecoratorPerson()
-    p.age = 150
-    p1.age = 150
+    p.age1 = 150
+    p1.age1 = 150
     print(p.age)
     print(p1.age)
-    p.age = 149
-    p1.age = 149
+    p.age1 = 149
+    p1.age1 = 149
     print(p.age)
     print(p1.age)
 
