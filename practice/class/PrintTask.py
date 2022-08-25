@@ -163,3 +163,18 @@ if __name__ == '__main__':
     Average Wait  15.42 secs   0 task remaining
     total average: 15.234782703285992
     """
+
+"""
+1. 使用旋转手臂的力量, 小拇指并不需要发力
+2. 尽量少移动, 因为重新定位很耗时
+3. 手臂应该悬停, 而不是放在桌子或者腕托上
+
+- 热键:
+        ert  io
+    asd     h  l
+            nm
+- 易错词:
+    assert
+    hand
+    everything
+"""
