@@ -31,7 +31,9 @@ async def read_db():
 
 async def main():
     await read_file()  # 不使用 await 函数不会暂定现场，不会再回到该调用点
+    print("会阻塞")
     await read_api()
+    print("第二次, 会阻塞")
     await read_db()
 
 
