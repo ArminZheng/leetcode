@@ -1,4 +1,5 @@
-from basic.stack import Stack
+from basic.LinearDS.stack import Stack
+
 
 def postfixEval(postfixExpr):
     operandStack = Stack()
@@ -18,6 +19,7 @@ def postfixEval(postfixExpr):
             operandStack.push(result)
     return operandStack.pop(), formula
 
+
 def doMath(op, op1, op2):
     if op == "*":
         return op1 * op2
@@ -28,11 +30,13 @@ def doMath(op, op1, op2):
     else:
         return op1 - op2
 
+
 def split(infixexpr):
     if " " in infixexpr:
         return infixexpr.split()
     else:
         return list(infixexpr)
+
 
 # ABC*+DE*+F+
 # AB+C*

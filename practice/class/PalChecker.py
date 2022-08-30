@@ -1,6 +1,4 @@
-
-
-from basic.deque import Deque
+from basic.LinearDS.deque import Deque
 
 
 def palchecker(aString):

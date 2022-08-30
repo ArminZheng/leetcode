@@ -1,8 +1,8 @@
-def anagramSolution(s1, s2): # 使用比较计数法
+def anagramSolution(s1, s2):  # 使用比较计数法
     c1 = [0] * 26
     c2 = [0] * 26
     for i in range(len(s1)):
-        print(ord(s1[i]), end=" ") # return unicode number
+        print(ord(s1[i]), end=" ")  # return unicode number
         pos = ord(s1[i]) - ord('a')
         c1[pos] += 1
     for i in range(len(s2)):
@@ -16,5 +16,6 @@ def anagramSolution(s1, s2): # 使用比较计数法
         else:
             stillOk = False
     return stillOk
+
 
 print(anagramSolution("apple", "pleap"))

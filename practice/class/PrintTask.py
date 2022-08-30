@@ -1,8 +1,8 @@
 import random
 import time
 
-from basic.simpleQueue import Queue
-from basic.simpleDeque import Queue as DQueue
+from basic.LinearDS.simpleQueue import Queue
+from basic.LinearDS.simpleDeque import Queue as DQueue
 
 """打印机问题
 确定打印机系统的容量: 在能接受的等待时间内, 先到先服务, 容纳多少用户以多高频率提交多少打印任务

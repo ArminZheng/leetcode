@@ -1,5 +1,5 @@
-from basic.simpleDeque import Stack as S1
-from basic.simpleStack import Stack as S2
+from basic.LinearDS.simpleDeque import Stack as S1
+from basic.LinearDS.simpleStack import Stack as S2
 from timeit import Timer
 
 

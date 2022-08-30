@@ -1,4 +1,4 @@
-from basic.stack import Stack
+from basic.LinearDS.stack import Stack
 
 def parChecker(symbolString):
     s = Stack()

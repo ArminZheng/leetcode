@@ -2,5 +2,5 @@
 
 # aaa()
 
-print("hello world")
 from A import aaa
+print("hello world")
