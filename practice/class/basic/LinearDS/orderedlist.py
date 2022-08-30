@@ -60,7 +60,7 @@ class OrderedList:
         temp = Node(item)
         # 加在首部. 如果循环立即就停了, previous 就为空
         if previous == None:
-            temp.next = self.head # 注意顺序, self.head 是一个别名. 如果先覆盖就遗失原来代表的Node
+            temp.next = self.head  # 注意顺序, self.head 是一个别名. 如果先覆盖就遗失原来代表的Node
             self.head = temp
         # 放在表中. 放在大于的 item 的 previous 之后
         else:

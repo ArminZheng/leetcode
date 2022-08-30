@@ -16,5 +16,8 @@ def palchecker(aString):
     return stillEqual
 
 # 是否回文词 回文词
-print(palchecker("lsdfkj"))
-print(palchecker("radar"))
+print(palchecker("lsdfkj"))  # False
+print(palchecker("radar"))  # True
+print(palchecker)  # <function palchecker at 0x1006084c0>
+print(Deque)  # <class 'basic.LinearDS.deque.Deque'>
+print(Deque())  # <basic.LinearDS.deque.Deque object at 0x1004f8070>

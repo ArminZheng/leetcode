@@ -103,6 +103,15 @@ class UnorderedList:
         else:
             previous.next(current.next)  # 替换
 
+    def __getitem__(self, key: int):
+        current: Node = self.head
+        for _ in range(key):
+            current = current.next
+            # if current is None:
+            #     raise ValueError("下标越界")
+            assert current is not None, "下标越界"
+        return current.data
+
 
 if __name__ == '__main__':
     temp = Node(11)
@@ -116,3 +125,7 @@ if __name__ == '__main__':
     print(ul.search(1))  # False
     print(ul.pop())  # 5
     print(ul.search(5))  # False
+    print(ul[0])
+    print(ul[1])
+    print(ul[2])
+    print(ul[3])
