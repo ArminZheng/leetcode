@@ -27,8 +27,8 @@ notes:
     抽象设计时做一些假设, 能避免让例外处理来分散我们对于数据结构的实现的注意力
     而把注意力集中在它的本质, 具体实现逻辑上
 """
-__all__ = ['add', 'remove', 'search', 'isEmpty',
-           'size', 'append', 'index', 'insert', 'pop' , 'Node', 'UnorderedList']
+__all__ = ['Node', 'UnorderedList', 'add', 'remove', 'search',
+           'isEmpty', 'size', 'append', 'index', 'insert', 'pop']
 
 
 class Node:
@@ -60,7 +60,59 @@ class UnorderedList:
     def isEmpty(self):
         return self.head == None
 
+    def add(self, item):
+        temp = Node(item)
+        temp.next = self.head
+        self.head = temp
+
+    def size(self):
+        current: Node = self.head
+        count = 0
+        while current != None:
+            count += 1
+            current = current.next
+        return count
+
+    def search(self, item):
+        current: Node = self.head
+        found = False
+        while current != None and not found:
+            if current.data == item:
+                found = True
+            else:
+                current = current.next
+        return found
+
+    def pop(self):
+        result = self.head.data
+        self.remove(result)
+        return result
+
+    def remove(self, item):
+        current = self.head
+        previous = None
+        found = False
+        while not found:
+            if current.data == item:
+                found = True
+            else:
+                previous = current
+                current = current.next  # 后移
+        if previous == None:
+            self.head = current.next
+        else:
+            previous.next(current.next)  # 替换
+
 
 if __name__ == '__main__':
     temp = Node(11)
     print(temp.data)
+    ul = UnorderedList()
+    ul.add(2)
+    ul.add(3)
+    ul.add(4)
+    ul.add(5)
+    print(ul.search(3))  # True
+    print(ul.search(1))  # False
+    print(ul.pop())  # 5
+    print(ul.search(5))  # False

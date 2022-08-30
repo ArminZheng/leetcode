@@ -170,11 +170,24 @@ if __name__ == '__main__':
 3. 手臂应该悬停, 而不是放在桌子或者腕托上
 
 - 热键:
-        ert  io
+        wert  io
     asd     h  l
             nm
 - 易错词:
     assert
     hand
     everything
+    few wert
+    
+    switch
+    subtract
+    extends
+    synchronized
+    append
+    implements
+    throwas
+    volatile
+    protect
+    catch
+    break
 """
