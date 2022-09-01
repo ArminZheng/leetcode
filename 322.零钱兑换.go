@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 )
 
@@ -36,4 +37,49 @@ func main() {
 	list := []int{1, 2, 5}
 	result := coinChange(list, 11)
 	fmt.Println(result)
+}
+
+var ErrDivideByZero = errors.New("divide by zero")
+
+func Divide(a, b int) (int, error) {
+	if b == 0 {
+		return 0, ErrDivideByZero
+	}
+	return a / b, nil
+}
+
+func testErr() {
+	a, b := 10, 0
+	result, err := Divide(a, b)
+	if err != nil {
+		switch {
+		case errors.Is(err, ErrDivideByZero):
+			fmt.Println("divide by zero error")
+		default:
+			fmt.Printf("unexpected division error: %s\n", err)
+		}
+		return
+	} else {
+		print("hello: ")
+		print(err)
+	}
+
+	fmt.Printf("%d / %d = %d\n", a, b, result)
+}
+
+func testMap() {
+	mapx := make(map[int]*int)
+	t := []int{1, 2, 3}
+	for k, v := range t {
+		fmt.Println(v)
+		fmt.Println(&v)
+		fmt.Println(&k)
+		mapx[v] = &v
+	}
+	for i, val := range mapx {
+		fmt.Printf("%d %d \n", i, *val)
+	}
+	fmt.Println(mapx[1])
+	fmt.Println(mapx[2])
+	fmt.Println(mapx[3])
 }
