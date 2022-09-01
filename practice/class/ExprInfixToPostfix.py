@@ -46,15 +46,20 @@ def split(infixexpr):
         return list(infixexpr)
 
 
+def toList(infixexpr: str):
+    if " " in infixexpr:
+        tokenList = infixexpr.split()
+    else:
+        tokenList = list(infixexpr)
+    return tokenList
+
+
 if __name__ == "__main__":
     print(infixToPostfix("A + B * C + D * E + F"))
     print(infixToPostfix("(A+B)*C"))
     print(infixToPostfix("A+B*C+D*E+F"))
 
     infixexpr = "(a*b)+(c*d)"
-    if " " in infixexpr:
-        tokenList = infixexpr.split()
-    else:
-        tokenList = list(infixexpr)
+    tokenList = toList(infixexpr)
 
     print(tokenList)
