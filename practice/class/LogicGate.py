@@ -1,5 +1,8 @@
 #uuid_share#  ac449bec-1d4b-4358-9c59-78babb1c812d  #
-class LogicGate:  # 超类：逻辑门
+class LogicGate:
+    """超类：逻辑门
+    """
+
     def __init__(self, name):  # 初始化属性：名称
         self.label = name
         self.output = None
@@ -15,16 +18,37 @@ class LogicGate:  # 超类：逻辑门
     def setNextPin(self, source):
         pass
 
-    def performGateLogic():
+    def performGateLogic(self):
         pass
 
 
-class BinaryGate(LogicGate):  # 子类/超类：二元逻辑门
+class Connector:
+    """连接器
+    输入-输出
+    """
+
+    def __init__(self, fgate: LogicGate, tgate: LogicGate):
+        self.fromgate = fgate
+        self.togate = tgate
+
+        tgate.setNextPin(self)
+
+    def getFrom(self):
+        return self.fromgate
+
+    def getTo(self):
+        return self.togate
+
+
+class BinaryGate(LogicGate):
+    """子类/超类：二元逻辑门
+    """
+
     def __init__(self, name):
         LogicGate.__init__(self, name)  # 调用超类初始化
 
-        self.pinA = None  # 两个引脚A/B
-        self.pinB = None  # 引脚的两种可能：接直接输入None，接连接器Connector
+        self.pinA: Connector = None  # 两个引脚A/B
+        self.pinB: Connector = None  # 引脚的两种可能：接直接输入None，接连接器Connector
 
     def getPinA(self):  # 取A引脚的值，按照两种可能取值
         if self.pinA == None:
@@ -41,7 +65,7 @@ class BinaryGate(LogicGate):  # 子类/超类：二元逻辑门
         else:
             return self.pinB.getFrom().getOutput()
 
-    def setNextPin(self, source: LogicGate):  # Connector把输出接到某个引脚
+    def setNextPin(self, source: Connector):  # Connector把输出接到某个引脚
         if self.pinA == None:
             self.pinA = source  # source是Connector对象
         else:
@@ -52,6 +76,9 @@ class BinaryGate(LogicGate):  # 子类/超类：二元逻辑门
 
 
 class UnitaryGate(LogicGate):
+    """子类/超类：一元逻辑门
+    """
+
     def __init__(self, n):
         LogicGate.__init__(self, n)
         self.pinA = None
@@ -70,8 +97,13 @@ class UnitaryGate(LogicGate):
         else:
             print("Cannot Connect: NO EMPTY PINS on this gate")
 
+# 具体的子类
+
 
 class NotGate(UnitaryGate):
+    """非门
+    """
+
     def __init__(self, n):
         UnitaryGate.__init__(self, n)
 
@@ -82,7 +114,10 @@ class NotGate(UnitaryGate):
             return 1
 
 
-class AndGate(BinaryGate):  # 具体的子类
+class AndGate(BinaryGate):
+    """与门
+    """
+
     def __init__(self, n):
         BinaryGate.__init__(self, n)
 
@@ -96,6 +131,9 @@ class AndGate(BinaryGate):  # 具体的子类
 
 
 class OrGate(BinaryGate):
+    """或门
+    """
+
     def __init__(self, n):
         BinaryGate.__init__(self, n)
 
@@ -108,20 +146,6 @@ class OrGate(BinaryGate):
             return 0
 
 
-class Connector:
-    def __init__(self, fgate, tgate: LogicGate):
-        self.fromgate = fgate
-        self.togate = tgate
-
-        tgate.setNextPin(self)
-
-    def getFrom(self):
-        return self.fromgate
-
-    def getTo(self):
-        return self.togate
-
-
 def main():
     g1 = AndGate("G1")
     g2 = AndGate("G2")
@@ -130,6 +154,9 @@ def main():
     c1 = Connector(g1, g3)
     c2 = Connector(g2, g3)
     c3 = Connector(g3, g4)
+    # c1 = Connector(AndGate("G1"), OrGate("G3"))
+    # c2 = Connector(AndGate("G2"), OrGate("G3"))
+    # c3 = Connector(OrGate("G3"), NotGate("G4"))
     print(g4.getOutput())
 
 
