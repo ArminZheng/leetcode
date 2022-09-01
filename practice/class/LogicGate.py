@@ -97,11 +97,9 @@ class UnitaryGate(LogicGate):
         else:
             print("Cannot Connect: NO EMPTY PINS on this gate")
 
-# 具体的子类
-
 
 class NotGate(UnitaryGate):
-    """非门
+    """具体的子类: 非门
     """
 
     def __init__(self, n):
@@ -115,7 +113,7 @@ class NotGate(UnitaryGate):
 
 
 class AndGate(BinaryGate):
-    """与门
+    """具体的子类: 与门
     """
 
     def __init__(self, n):
@@ -131,7 +129,7 @@ class AndGate(BinaryGate):
 
 
 class OrGate(BinaryGate):
-    """或门
+    """具体的子类: 或门
     """
 
     def __init__(self, n):
@@ -141,6 +139,48 @@ class OrGate(BinaryGate):
         a = self.getPinA()
         b = self.getPinB()
         if a == 1 or b == 1:
+            return 1
+        else:
+            return 0
+
+
+class XORGate(BinaryGate):
+    """具体的子类: 异或门
+
+    半加器 (无进位输入, 有进位输出. 异或+与实现)
+    全加器 (全进位功能, 加法器)
+        1位全加器 One full adder (二进制加法电路)
+        4位全加器 (多位全加器连接可以 逐位进位 (也称串行进位), 也可以 超前进位)
+
+        Carry in
+         ⬇
+    A -> [] 
+         [] -> Sum
+    B -> []
+         ⬇
+        Carry out
+
+    (三个输入两个输出)
+
+
+    半加器实现: 1个 异或 + 1个 与 (异或可以得到和, 与可以得到进位)
+    
+    全加器: 在半加器的基础上, 使能够处理低位过来的进位, 记住最多只有三个1输入, 所以最多只输出 11 (2进制)
+    全加器实现: 
+        在半加器的基础上再添加一个半加器的结构, 低位的进位 与 Sum 进行 (XOR 和 AND)
+        这两个半加器的 AND 都会产生 Carry out, 因此将所有进位进行 OR  (4个数至少有 2个 1 就能进位) 最终构成了全加器
+        实现统计: 
+            2 XOR + 2 AND + 1 OR
+            2 XOR + 3 AND + 1 OR
+    """
+
+    def __init__(self, n):
+        BinaryGate.__init__(self, n)
+
+    def performGateLogic(self):
+        a = self.getPinA()
+        b = self.getPinB()
+        if (a == 1 and b == 0) or (a == 0 and b == 1):
             return 1
         else:
             return 0
