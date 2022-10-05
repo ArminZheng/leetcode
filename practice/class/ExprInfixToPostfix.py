@@ -63,3 +63,5 @@ if __name__ == "__main__":
     tokenList = toList(infixexpr)
 
     print(tokenList)
+
+# pain is inevitable, but suffering is a choice.
