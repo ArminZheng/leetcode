@@ -1,6 +1,7 @@
 class Stack:
     """栈 (栈顶尾端版)
     """
+
     def __init__(self):
         self.items = []
 
@@ -14,7 +15,7 @@ class Stack:
     def push(self, item):
         """
         Add an item to the end of the list.
-        
+
         @param item The item to be pushed onto the stack.
         """
         self.items.append(item)

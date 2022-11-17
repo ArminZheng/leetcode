@@ -1,6 +1,7 @@
 class Queue:
     """队列
     """
+
     def __init__(self):
         self.items = []
 
@@ -22,3 +23,6 @@ class Queue:
 
     def size(self):
         return len(self.items)
+
+    offer = enqueue
+    poll = dequeue

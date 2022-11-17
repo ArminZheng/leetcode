@@ -9,6 +9,7 @@ class StudentMListNode(object):
         self.nextByName = None
         pass
 
+
 """二叉链表
 特例: 二叉树
 """
