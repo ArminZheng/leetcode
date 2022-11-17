@@ -1,5 +1,6 @@
 from basic.LinearDS.stack import Stack
 
+
 def parChecker(symbolString):
     s = Stack()
     balanced = True
@@ -26,14 +27,16 @@ def parChecker(symbolString):
     else:
         return False
 
+
 def match(a, b):
     if a == b:
         return True
     return False
 
+
 def effectBrackets(s):
     st = Stack()
-    d = {"(":")", "[":"]", "{":"}"}
+    d = {"(": ")", "[": "]", "{": "}"}
     # s = input()
     for a in s:
         if a in "({[":
@@ -46,6 +49,7 @@ def effectBrackets(s):
             print("True")
         else:
             print("False")
+
 
 if __name__ == '__main__':
     print(parChecker("((()])"))
