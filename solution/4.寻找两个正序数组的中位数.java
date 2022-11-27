@@ -47,5 +47,4 @@ class Solution {
     return med2;
   }
 }
-// 全身心投入，永不妥协，永不满足。有多少人削尖了脑袋想要跻身上层。
 // @lc code=end

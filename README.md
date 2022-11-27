@@ -49,3 +49,15 @@ leetcode 剑指offer 32 — III. 从上到下打印二叉树III
 *leetcode 994.腐烂的橘子
 leetcode 204.计数质数
 HJ25. 数据分类处理
+
+> 674 最长连续递增序列
+> 647 回文子串
+> 5 回文子串
+> 76 最小覆盖子串
+> 2470 最小公倍数为 K 的子数组数目
+> 994 腐烂的橘子
+> 204 计数质数
+> 102 二叉树的层序遍历 从上到下打印二叉树III
+> [剑指offer 32 — III. 从上到下打印二叉树III](https://leetcode.cn/problems/cong-shang-dao-xia-da-yin-er-cha-shu-iii-lcof/)
+> HJ25. 数据分类处理
+> [称砝码](https://www.nowcoder.com/practice/f9a4c19050fc477e9e27eb75f3bfd49c?tpId=37&tqId=21264&rp=1&ru=/exam/oj/ta&qru=/exam/oj/ta&sourceUrl=%2Fexam%2Foj%2Fta%3Fpage%3D1%26pageSize%3D50%26search%3D%25E7%25A7%25B0%25E7%25A0%259D%25E7%25A0%2581%26tpId%3D37%26type%3D37&difficulty=undefined&judgeStatus=undefined&tags=&title=%E7%A7%B0%E7%A0%9D%E7%A0%81)
