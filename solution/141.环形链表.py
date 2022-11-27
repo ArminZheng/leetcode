@@ -19,8 +19,10 @@ class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         rabbit = tortoise = head
         while rabbit and rabbit.next:
-            rabbit = rabbit.next.next
-            tortoise = tortoise.next
+            # rabbit = rabbit.next.next
+            # tortoise = tortoise.next
+            # 可以精简
+            rabbit, tortoise = rabbit.next.next, tortoise.next
             if rabbit is tortoise:
                 return True
         return False

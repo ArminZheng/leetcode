@@ -60,6 +60,7 @@ class Solution:
                 # flush q1
                 q1 = q2
                 q2 = temp
+                # 可以精简为: q1, q2 = q2, temp
             else:
                 q1 = temp
         return -1
