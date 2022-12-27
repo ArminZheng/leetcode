@@ -7,7 +7,7 @@
 // @lc code=start
 class Solution {
 
-    public int[] twoSum(int[] num bers, int target) {
+    public int[] twoSum(int[] numbers, int target) {
         Map<Integer, Integer> hash = new HashMap<>();
         for (int i = 0; i < numbers.length; i++) {
             Integer diff = (Integer) (target - numbers[i]);
