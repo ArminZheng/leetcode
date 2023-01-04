@@ -1,24 +1,22 @@
 #
-# @lc app=leetcode.cn id=76 lang=python3
+# @lc app=leetcode.cn id=438 lang=python3
 #
-# [76] 最小覆盖子串
+# [438] 找到字符串中所有字母异位词
 #
 from collections import defaultdict
-import sys
+from typing import List
 
 
 # @lc code=start
 class Solution:
-    def minWindow(self, s: str, t: str) -> str:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
 
         NEED, window = defaultdict(int), defaultdict(int)
-        for item in t:
+        for item in p:
             NEED[item] += 1
-
         left, right = 0, 0
-        valid, point = 0, 0
-        lenght = sys.maxsize
-
+        valid = 0
+        res = list()
         while right < len(s):
             c = s[right]
             right += 1
@@ -27,10 +25,9 @@ class Solution:
                 if window[c] == NEED[c]:
                     valid += 1
 
-            while valid == len(NEED):
-                if right - left < lenght:
-                    point = left
-                    lenght = right - left
+            while right - left >= len(p):
+                if valid == len(NEED):
+                    res.append(left)
 
                 d = s[left]
                 left += 1
@@ -38,5 +35,5 @@ class Solution:
                     if window[d] == NEED[d]:
                         valid -= 1
                     window[d] -= 1
-        return "" if lenght == sys.maxsize else s[point:point+lenght]
+        return res
 # @lc code=end
