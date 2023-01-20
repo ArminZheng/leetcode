@@ -3,8 +3,7 @@
 #
 # [300] 最长递增子序列
 #
-from ast import List
-from turtle import right
+from typing import List
 
 
 # @lc code=start
@@ -15,18 +14,18 @@ class Solution:
         for i in range(len(nums)):
             poker = nums[i]
 
-            l, r = 0, piles
-            while l < r:
-                mid = (l + r) // 2
+            left, right = 0, piles
+            while left < right:
+                mid = (left + right) // 2
                 if top[mid] > poker:
-                    r = mid
+                    right = mid
                 elif top[mid] < poker:
-                    l = mid + 1
+                    left = mid + 1
                 else:
-                    r = mid
-            if l == piles:
+                    right = mid
+            if left == piles:
                 piles += 1
-            top[l] = poker
+            top[left] = poker
         return piles
 
     def lengthOfLIS2(self, nums: List[int]) -> int:
