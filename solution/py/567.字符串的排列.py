@@ -24,8 +24,9 @@ class Solution:
                 if window[c] == NEED[c]:
                     valid += 1
 
-            while right - left >= len(s1):  # >
-                if valid == len(NEED):  # len(s1)
+            # because right self plus one, so remainder could be lenght
+            while right - left >= len(s1):
+                if valid == len(NEED):
                     return True
 
                 d = s2[left]
