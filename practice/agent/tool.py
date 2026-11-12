@@ -8,6 +8,10 @@ load_dotenv()
 
 
 # 2.定义工具，基础版，通过注释描述工具
+# 智能体在工作时，需要将函数的名称、输入、作用传递给大模型，默认情况下这些信息的来源是：​
+# 工具名称：函数名​
+# 工具输入：函数入参​
+# 工具作用：函数的注释
 @tool
 def getWeather(location: str) -> str:
     """
@@ -26,7 +30,7 @@ model = init_chat_model(
 )
 
 # 3.定义Agent
-agent = create_agent(model=model, tools=[getWeather])
+agent = create_agent(model=model, tools=[getWeather])  # type: ignore
 
 # 4.调用模型
 print("🚀 正在调用大模型...")
